@@ -1,0 +1,28 @@
+data:
+  csv_path: data/geochem_data.csv
+  mask_mode: correlation
+  mask_ratio: 0.4
+
+model:
+  input_dim: 13
+  hidden_dim: 64
+  latent_dim: 32
+  num_layers: 4
+  num_heads: 4
+  pooling: "mean"
+
+training:
+  batch_size: 128
+  epochs: 500
+  learning_rate: 1e-3
+  log_interval: 10
+  seed: 42
+  side_targets: ['Au','As','Sb']  
+  side_loss_weight: 1             
+  early_stop_patience: 500
+
+output:
+  checkpoint_path: outputs/checkpoints/encoder.pt
+  log_path: outputs/logs/train.log
+  figure_path: outputs/figures/loss_curve.png
+

@@ -1,0 +1,24 @@
+data:
+  mask_mode: random
+  mask_ratio: 0.4
+model:
+  hidden_dim: 128
+  num_heads: 8
+  num_layers: 4
+  pooling: mean+max
+output:
+  checkpoint_path: outputs/checkpoints/encoder.pt
+  figure_path: outputs/figures/loss_curve.png
+  log_path: outputs/logs/train.log
+training:
+  batch_size: 256
+  early_stop_patience: 10
+  epochs: 100
+  learning_rate: 0.001
+  log_interval: 5
+  seed: 42
+  side_loss_weight: 1
+  side_targets:
+  - Au
+  - As
+  - Hg
